@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+
+  <h1>H1!!!!!</h1>
+  <p>My first paragraph.</p>
+  <button hx-get='/pages/partial' hx-swap='outerHTML'  hx-push-url='/partial'>
+    Click Me
+  </button>
+  
+  <button hx-get='/pages/names' hx-target='#app'  hx-push-url='/names' preload>
+    Names
+  </button>
+  <button hx-get='/pages/counter' hx-target='#app'  hx-push-url='/counter' preload>
+    Counter
+  </button>
+  <div id='app'></div>
+  <script src='https://unpkg.com/htmx.org@1.6.1'></script>
+  <script src='https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js'></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const route = window.location.pathname;
+
+      if (route.length > 1) document.querySelector(`[hx-push-url='${route}']`).click();
+    });
+    // ..
+
+    // ..
+  </script>
+  </body>
+</html>
