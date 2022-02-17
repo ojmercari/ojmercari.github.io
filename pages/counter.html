@@ -1,0 +1,26 @@
+
+<div id='counter'></div>
+
+<template>
+  <div x-data="counter">
+    <button @click="increment">Increment</button>
+  
+    <span x-text="count"></span>
+  </div>
+</template>
+
+<style>
+  #counter {
+    color: red;
+  }
+</style>
+
+<script>
+  Alpine.data('counter', () => ({
+    count: 1,
+
+    increment() { this.count++ }
+  }))
+
+  document.querySelector('#counter').innerHTML = document.querySelector('#counter').nextElementSibling.innerHTML;
+</script>
